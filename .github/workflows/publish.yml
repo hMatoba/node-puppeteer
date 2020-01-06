@@ -1,0 +1,19 @@
+name: Build and Push
+ 
+on: [push]
+ 
+jobs:
+  build-and-push:
+ 
+    runs-on: ubuntu-18.04
+    timeout-minutes: 300
+ 
+    steps:
+    - uses: actions/checkout@v1    
+  
+    - name: Build, tag, and push image
+      env:
+        FOO: ${{ secrets.FOO }}
+      run: |
+        envsubst '$$NODE_VERSION' < Dockerfile > _Dockerfile
+        docker build -t np:$NODE_VERSION-alpine .
