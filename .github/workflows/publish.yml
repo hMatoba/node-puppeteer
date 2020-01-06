@@ -13,8 +13,9 @@ jobs:
   
     - name: Build, tag, and push image
       env:
-        FOO: ${{ secrets.FOO }}
+        DOCKERHUB_ID: ${{ secrets.DOCKERHUB_ID }}
+        DOCKERHUB_PW: ${{ secrets.DOCKERHUB_PW }}
         NODE_VERSION: 10
       run: |
         envsubst '$$NODE_VERSION' < _Dockerfile > Dockerfile
-        docker build -t np:$NODE_VERSION-alpine .
+        docker build -t ${DOCKERHUB_ID}/np:$NODE_VERSION-alpine .
