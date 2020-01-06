@@ -14,6 +14,7 @@ jobs:
     - name: Build, tag, and push image
       env:
         FOO: ${{ secrets.FOO }}
+        NODE_VERSION: 10
       run: |
-        envsubst '$$NODE_VERSION' < Dockerfile > _Dockerfile
+        envsubst '$$NODE_VERSION' < _Dockerfile > Dockerfile
         docker build -t np:$NODE_VERSION-alpine .
