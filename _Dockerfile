@@ -17,7 +17,7 @@ RUN apk add --no-cache openssl \
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 ENV CHROME_BIN /usr/bin/chromium-browser
 
-# RUN npm install -g --unsafe-perm puppeteer@2.0.0
+RUN npm install -g --unsafe-perm puppeteer@2.0.0
 
 # Add user so we don't need --no-sandbox.	
 RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \	
