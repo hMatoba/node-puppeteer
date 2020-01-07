@@ -13,9 +13,6 @@ RUN apk add --no-cache openssl \
  && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
  && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
  
-
-RUN npm install -g --unsafe-perm puppeteer@2.0.0
-
 # Add user so we don't need --no-sandbox.	
 RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \	
     && mkdir -p /home/pptruser/Downloads \	
