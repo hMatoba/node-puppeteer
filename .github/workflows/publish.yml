@@ -7,7 +7,7 @@ jobs:
  
     runs-on: ubuntu-18.04
     timeout-minutes: 300
-    strategy:2
+    strategy:
       matrix:
         node: [20]
     env:
