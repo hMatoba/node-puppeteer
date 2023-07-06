@@ -7,9 +7,9 @@ jobs:
  
     runs-on: ubuntu-18.04
     timeout-minutes: 300
-    strategy:
+    strategy:2
       matrix:
-        node: [10, 12, 13]
+        node: [20]
     env:
       DOCKERHUB_ID: ${{ secrets.DOCKERHUB_ID }}
       DOCKERHUB_PW: ${{ secrets.DOCKERHUB_PW }}
